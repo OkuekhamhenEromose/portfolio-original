@@ -1,0 +1,401 @@
+
+/* Home Section */
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-2xl) 9%;
+}
+
+/* Create the dual-color background effect */
+.home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    var(--color-primary) 50%, 
+    var(--color-secondary) 50%);
+  z-index: -2;
+}
+
+/* Add the background image only to the left side */
+.home::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url('/images/33246-JavaScript-minified-computer-code-CSS-syntax_highlighting-HTML-minimalism-748x455.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/* Home Container */
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: var(--space-lg);
+}
+
+/* Home Content - right side with solid color background */
+.home-content {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+  padding: 2rem;
+  background-color: var(--color-secondary); /* This will match the right side background */
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Home Image - left side with image background */
+.home-img {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.home-img img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+}
+
+ANOTHER ONE
+
+/* Home Section */
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-2xl) 9%;
+  background-color: var(--color-secondary); /* Fallback background */
+}
+
+/* Background image covering the entire hero */
+.home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/33246-JavaScript-minified-computer-code-CSS-syntax_highlighting-HTML-minimalism-748x455.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+/* Color overlay for the content area (right half) */
+.home::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--color-primary);
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Home Container */
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: var(--space-lg);
+}
+
+/* Home Content - right side with solid color background */
+.home-content {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+  z-index: 2;
+  padding: 2rem;
+}
+
+/* Home Image - left side with image background */
+.home-img {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.home-img img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .home::after {
+  background: var(--color-secondary-dark); /* Adjust for dark mode */
+}
+
+
+
+.skills {
+  overflow: hidden;
+}
+
+.skills-slider {
+  overflow: hidden;
+  margin-top: var(--space-lg);
+}
+
+.skills-track {
+  display: flex;
+  gap: var(--space-lg);
+  animation: slideLeft 30s linear infinite;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 120px;
+  padding: var(--space-md);
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-fast);
+}
+
+.skill-item:hover {
+  transform: scale(1.05);
+}
+
+.skill-item i {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.skill-item span {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+SECTION 
+
+ <div class="container">
+  <main class="row">
+    <!-- Education (Left Column) -->
+    <section class="col">
+      <header class="title">
+        <h2>EDUCATION</h2>
+      </header>
+      <div class="contents">
+        <div class="box">
+          <h4>2018 - 2022</h4>
+          <h3>High School Degree</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+        <div class="box">
+          <h4>2018 - 2022</h4>
+          <h3>Bachelor's Degree</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience (Right Column) -->
+    <section class="col">
+      <header class="title">
+        <h2>EXPERIENCE</h2>
+      </header>
+      <div class="contents">
+        <div class="box">
+          <h4>2018 - 2022</h4>
+          <h3>UI/UX Designer</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+        <div class="box">
+          <h4>2018 - 2022</h4>
+          <h3>Full-Stack Developer</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+CSS
+.container {
+  width: 100%;
+  padding: 35px 10%;
+}
+
+main.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px; /* Space between columns */
+}
+
+.col {
+  width: 100%; /* Ensure columns take full width of their grid cell */
+}
+
+.col header.title {
+  font-family: Helvetica, sans-serif;
+  color: #11a372;
+  padding: 0 0 20px 30px;
+}
+
+.col .contents {
+  padding: 0 30px;
+  border-left: 2px solid #bababa;
+}
+
+.col .contents .box {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.4s;
+  margin-bottom: 20px;
+}
+
+.col .contents .box:hover {
+  box-shadow: 0 3px 12px #ccc;
+  border-color: transparent;
+}
+
+.col .contents .box::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  right: calc(100% + 22px);
+  top: 0;
+  background-color: #11a372;
+  border: 2px solid white;
+}
+
+.box h4 {
+  color: #11a372;
+}
+
+.box h3 {
+  font-size: 19px;
+  padding: 10px 0 6px;
+  font-family: Helvetica, sans-serif;
+  color: #444;
+}
+
+.box p {
+  line-height: 1.2;
+  color: #666;
+  font-size: 17px;
+}
+
+/* Responsive: Stack columns on small screens */
+@media (max-width: 768px) {
+  main.row {
+    grid-template-columns: 1fr;
+  }
+  .col:last-child {
+    margin-top: 30px;
+  }
+}
+
+OLDER ONE 
+  <section id="experience" class="experience">
+    <div class="container">
+      <h2 class="section-title">Experience & Education</h2>
+      <div class="experience-grid">
+        <div class="education-section">
+          <h3>Education</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Bachelor of Computer Science</h4>
+                <p class="institution">University of Technology</p>
+                <p class="date">2018 - 2022</p>
+                <p class="description">
+                  Graduated with honors, focusing on software engineering,
+                  data structures, and web development.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Full Stack Web Development</h4>
+                <p class="institution">Tech Bootcamp</p>
+                <p class="date">2021</p>
+                <p class="description">
+                  Intensive 6-month program covering modern web technologies
+                  and best practices.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="work-section">
+          <h3>Work Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Senior Full Stack Developer</h4>
+                <p class="institution">Tech Solutions Inc.</p>
+                <p class="date">2023 - Present</p>
+                <p class="description">
+                  Leading development of scalable web applications,
+                  mentoring junior developers, and implementing best practices.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <h4>Full Stack Developer</h4>
+                <p class="institution">StartupXYZ</p>
+                <p class="date">2022 - 2023</p>
+                <p class="description">
+                  Built and maintained multiple client applications using
+                  React, Node.js, and various databases.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
