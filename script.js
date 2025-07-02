@@ -1,212 +1,255 @@
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Theme Initialization
+// Theme Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+
+       ScrollReveal({ 
+        reset: true,
+        distance: '60px',
+        duration: 2500,
+        delay: 400
+      });
+      ScrollReveal().reveal('header', { delay: 500, origin: 'top' });
+      ScrollReveal().reveal('.home-content', { delay: 500, origin: 'left', });
+      ScrollReveal().reveal('.home-content .hero-buttons', { delay: 700, origin: 'left', });
+      ScrollReveal().reveal('.home_description', { delay: 900, origin: 'left' });
+      ScrollReveal().reveal('.home-img', { delay: 500, origin: 'right' });
+      ScrollReveal().reveal('.home_form', { delay: 1200, origin: 'left' });
+      ScrollReveal().reveal('.section-title', { delay: 500, origin: 'top' });
+      ScrollReveal().reveal('.about-image', { delay: 500, origin: 'left' });
+      ScrollReveal().reveal('.about-content h3, .about-content p', { delay: 500, origin: 'right' });
+      ScrollReveal().reveal('.highlight-item', { delay: 500, origin: 'bottom', interval: 200 });
+      ScrollReveal().reveal('.info-cards .info-card', { delay: 500, origin: 'bottom', interval: 300 });
+      ScrollReveal().reveal('.filter-btn', { delay: 500, origin: 'right', interval: 300 });
+      
+      ScrollReveal().reveal('.col1', { delay: 500, origin: 'left', interval: 300 });
+      ScrollReveal().reveal('.col2', { delay: 500, origin: 'right',});
+      ScrollReveal().reveal('.learning-section h3, .contact-form-section h3', { delay: 500, origin: 'top',});
+      ScrollReveal().reveal('.learning-item', { delay: 500, origin: 'left', interval: 300 });
+      ScrollReveal().reveal('.form-group', { delay: 500, origin: 'right',});
+      ScrollReveal().reveal('.btn-contact-info button', { delay: 500, origin: 'bottom', interval: 200 });
+      ScrollReveal().reveal('.contact-item', { delay: 500, origin: 'bottom', interval: 200 });
+  // Theme toggle elements
   const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
-  const sunIcon = 'fa-sun';
-  const moonIcon = 'fa-moon';
-
-  // Load saved theme from localStorage
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  setTheme(savedTheme, body, themeToggle, sunIcon, moonIcon);
-
-  // Add event listener for theme toggle
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () =>
-      toggleTheme(body, themeToggle, sunIcon, moonIcon)
-    );
+  const themeIcon = themeToggle.querySelector('i');
+  const htmlElement = document.documentElement;
+  
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  
+  // Apply saved theme or default to light
+  if (savedTheme === 'dark') {
+    htmlElement.setAttribute('data-theme', 'dark');
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun');
+  } else {
+    htmlElement.removeAttribute('data-theme');
+    themeIcon.classList.remove('fa-sun');
+    themeIcon.classList.add('fa-moon');
   }
-
-  function setTheme(theme, body, themeToggle, sunIcon, moonIcon) {
-    body.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    updateIcon(theme, themeToggle, sunIcon, moonIcon);
-  }
-
-  function toggleTheme(body, themeToggle, sunIcon, moonIcon) {
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme, body, themeToggle, sunIcon, moonIcon);
-  }
-
-  function updateIcon(theme, themeToggle, sunIcon, moonIcon) {
-    const icon = theme === 'dark' ? sunIcon : moonIcon;
-    themeToggle.innerHTML = `<i class="fas ${icon}"></i>`;
-    themeToggle.style.color = theme === 'dark' ? '#ff9900' : '';
-  }
-
-  // Header Scroll Behavior
-  const header = document.querySelector('.header');
-  const navbar = document.querySelector('.navbar');
-  const heroSection = document.querySelector('.home');
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          header.classList.add('scrolled');
-          navbar.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-          navbar.classList.remove('scrolled');
+  
+  // Theme toggle click handler
+  themeToggle.addEventListener('click', function() {
+    if (htmlElement.getAttribute('data-theme') === 'dark') {
+      // Switch to light theme
+      htmlElement.removeAttribute('data-theme');
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+      localStorage.setItem('theme', 'light');
+    } else {
+      // Switch to dark theme
+      htmlElement.setAttribute('data-theme', 'dark');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+  
+  // Typing animation
+  const typed = new Typed('.typing', {
+    strings: ['Full Stack Developer', 'UI/UX Designer', 'Tech Enthusiast'],
+    typeSpeed: 100,
+    backSpeed: 60,
+    loop: true
+  });
+  
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+  
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Accordion functionality for education/experience section
+  const accordionItems = document.querySelectorAll('.accordian-item-inner');
+  
+  accordionItems.forEach(item => {
+    const button = item.querySelector('.accordian-item-button');
+    const body = item.querySelector('.accordian-item-body');
+    
+    button.addEventListener('click', () => {
+      // Toggle active class on the item
+      item.classList.toggle('active');
+      
+      // Toggle the body visibility
+      if (item.classList.contains('active')) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.style.padding = '1.5rem 1rem';
+      } else {
+        body.style.maxHeight = '0';
+        body.style.padding = '0';
+      }
+      
+      // Close other accordion items in the same column
+      const parentColumn = item.closest('.col');
+      parentColumn.querySelectorAll('.accordian-item-inner').forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.accordian-item-body').style.maxHeight = '0';
+          otherItem.querySelector('.accordian-item-body').style.padding = '0';
         }
       });
-    },
-    {
-      root: null,
-      threshold: 0,
-      rootMargin: '-80px 0px 0px 0px'
-    }
-  );
-
-  if (heroSection) {
-    observer.observe(heroSection);
-  }
-
-  // Typing Effect Initialization
-  if (typeof Typed !== 'undefined') {
-    new Typed('.typing', {
-      strings: ['FullStack Developer', 'Web Designer', 'Problem Solver'],
-      typeSpeed: 100,
-      backSpeed: 60,
-      loop: true,
-      cursorChar: '|',
-      smartBackspace: true
     });
-  } else {
-    console.warn('Typed.js library is not loaded. Please include it via CDN or local file.');
-    // Fallback: Display static text if Typed.js is not available
-    document.querySelector('.typing').textContent = 'FullStack Developer';
-  }
-
-  // Project Data and Rendering
-  const projectsData = [
+  });
+  
+  // Project filtering
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectsGrid = document.getElementById('projects-grid');
+  
+  // Sample projects data - replace with your actual projects
+  const projects = [
     {
       id: 1,
-      title: 'E-commerce Platform',
-      description: 'A full-featured online store with cart and payment processing.',
-      category: 'webapps',
-      tags: ['React', 'Node.js', 'MongoDB'],
-      image: 'images/33246-JavaScript-minified-computer-code-CSS-syntax_highlighting-HTML-minimalism-748x455.jpg'
+      title: "Portfolio Website",
+      description: "A full-featured online store with payment integration",
+      tags: ["frontend"],
+      image: "images/portfolio-img.png"
     },
     {
       id: 2,
-      title: 'Task Manager App',
-      description: 'Mobile application for managing daily tasks with notifications.',
-      category: 'mobile',
-      tags: ['Flutter', 'Firebase'],
-      image: 'images/images.jpg'
+      title: "Listings App",
+      description: "A full-featured online store with payment integration",
+      tags: ["backend"],
+      image: "images/insomnia1.png"
     },
     {
       id: 3,
-      title: 'API Service',
-      description: 'RESTful API backend for data processing.',
-      category: 'backend',
-      tags: ['Express', 'PostgreSQL'],
-      image: 'images/images.jpg'
+      title: "Real Estate Website",
+      description: "A responsive portfolio site with animations",
+      tags: ["frontend"],
+      image: "images/realestate-img.png"
     },
     {
       id: 4,
-      title: 'Space Adventure Game',
-      description: '2D browser-based game with physics engine.',
-      category: 'games',
-      tags: ['JavaScript', 'Canvas'],
-      image: 'images/IMG_9910.JPG'
+      title: "Task Management App",
+      description: "A productivity app with real-time updates",
+      tags: ["backend"],
+      image: ""
     },
     {
       id: 5,
-      title: 'Portfolio Website',
-      description: 'Responsive personal portfolio website.',
-      category: 'webapps',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      image: 'images/linkedIn profile img.jpg'
+      title: "Resume Builder",
+      description: "A 2D browser-based game with JavaScript",
+      tags: ["backend"],
+      image: "images/insomnia2.png"
     },
     {
       id: 6,
-      title: 'Fitness Tracker',
-      description: 'Mobile app for tracking workouts and nutrition.',
-      category: 'mobile',
-      tags: ['React Native', 'GraphQL'],
-      image: 'images/linkedIn profile img.jpg'
+      title: "Bricddle Gameks & Pa",
+      description: "A 2D browser-based game with JavaScript",
+      tags: ["games"],
+      image: "images/breakout-img.png"
     }
   ];
-
-  const projectsGrid = document.getElementById('projects-grid');
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  let activeFilter = 'all';
-
-  renderProjects(projectsData);
-
-  filterButtons.forEach((button) => {
+  
+  // Render projects
+  function renderProjects(filter = 'all') {
+    projectsGrid.innerHTML = '';
+    
+    const filteredProjects = filter === 'all' 
+      ? projects 
+      : projects.filter(project => project.tags.includes(filter));
+    
+    filteredProjects.forEach(project => {
+      const projectCard = document.createElement('div');
+      projectCard.className = 'project-card';
+      projectCard.innerHTML = `
+        <div class="project-image">
+          <img src="${project.image}" alt="${project.title}">
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-description">${project.description}</p>
+          
+          <div class="project-links">
+            <a href="#" class="btn">View Demo</a>
+            <a href="#" class="btn">GitHub Repo</a>
+          </div>
+        </div>
+      `;
+      projectsGrid.appendChild(projectCard);
+    });
+  }
+  // <div class="project-tags">
+  //           ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+  //         </div> === NOT NEEDED AFTER project.description
+  
+  // Initial render
+  renderProjects();
+  
+  // Filter button event listeners
+  filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      activeFilter = button.dataset.filter;
-      filterButtons.forEach((btn) => btn.classList.remove('active'));
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
       button.classList.add('active');
-      const filteredProjects = filterProjects(projectsData, activeFilter);
-      renderProjects(filteredProjects);
+      
+      // Get filter value and render projects
+      const filter = button.dataset.filter;
+      renderProjects(filter);
     });
   });
-
-  function filterProjects(projects, filter) {
-    if (filter === 'all') return projects;
-    return projects.filter((project) => project.category === filter);
-  }
-
-  function renderProjects(projects) {
-    const currentProjects = projectsGrid.querySelectorAll('.project-card');
-    currentProjects.forEach((project) => {
-      project.classList.add('hidden');
+  
+  // Form submission
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const name = this.elements['name'].value;
+      const email = this.elements['email'].value;
+      const message = this.elements['message'].value;
+      
+      // Here you would typically send the form data to a server
+      console.log('Form submitted:', { name, email, message });
+      
+      // Show success message
+      alert('Thank you for your message! I will get back to you soon.');
+      
+      // Reset form
+      this.reset();
     });
-
-    setTimeout(() => {
-      projectsGrid.innerHTML = '';
-      projects.forEach((project) => {
-        const projectCard = createProjectCard(project);
-        projectsGrid.appendChild(projectCard);
-        setTimeout(() => {
-          projectCard.classList.remove('hidden');
-        }, 50 * project.id);
-      });
-    }, 300);
   }
-
-  function createProjectCard(project) {
-    const card = document.createElement('div');
-    card.className = 'project-card hidden';
-    card.dataset.category = project.category;
-
-    const imageHTML = project.image
-      ? `<img src="${project.image}" alt="${project.title}" class="project-image">`
-      : '<div class="no-image">No Image Available</div>';
-
-    card.innerHTML = `
-      <div class="image-container">${imageHTML}</div>
-      <div class="project-content">
-        <h3 class="project-title">${project.title}</h3>
-        <p class="project-description">${project.description}</p>
-        <div class="project-tags">
-          ${project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('')}
-        </div>
-        <div class="project-links">
-          <a href="#" class="project-link primary">View Demo</a>
-          <a href="#" class="project-link secondary">Source Code</a>
-        </div>
-      </div>
-    `;
-
-    return card;
-  }
-
-  const accordianItems = document.querySelectorAll(".accordian-item-inner")
-
-accordianItems.forEach(element =>{
-    element.addEventListener("click", ()=>{
-        element.classList.toggle("active")
-        if (element.classList.contains("active")) {
-            element.lastElementChild.style.maxHeight = element.lastElementChild.scrollHeight + "px"
-        }else{
-            element.lastElementChild.style.maxHeight = "0px"
-        }
-    })
-})
 });
