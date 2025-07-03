@@ -1,8 +1,7 @@
 
-// Theme Toggle Functionality
 document.addEventListener('DOMContentLoaded', function() {
 
-       ScrollReveal({ 
+  ScrollReveal({ 
         reset: true,
         distance: '60px',
         duration: 2500,
@@ -28,41 +27,83 @@ document.addEventListener('DOMContentLoaded', function() {
       ScrollReveal().reveal('.form-group', { delay: 500, origin: 'right',});
       ScrollReveal().reveal('.btn-contact-info button', { delay: 500, origin: 'bottom', interval: 200 });
       ScrollReveal().reveal('.contact-item', { delay: 500, origin: 'bottom', interval: 200 });
-  // Theme toggle elements
+
+  const navToggleBtn = document.querySelector('.nav-toggle-btn');
+  const navMenu = document.getElementById('nav-menu');
   const themeToggle = document.getElementById('theme-toggle');
-  const themeIcon = themeToggle.querySelector('i');
-  const htmlElement = document.documentElement;
+  
+  // Toggle mobile menu
+  navToggleBtn.addEventListener('click', function() {
+    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !isExpanded);
+    navMenu.classList.toggle('active');
+    
+    // Toggle body overflow when menu is open
+    if (!isExpanded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Close menu when a nav link is clicked (for mobile)
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 992) { // Only for mobile view
+        navMenu.classList.remove('active');
+        navToggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+  
+  // Theme toggle functionality
+  themeToggle.addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update icon
+    const icon = this.querySelector('i');
+    icon.classList.toggle('fa-moon');
+    icon.classList.toggle('fa-sun');
+  });
   
   // Check for saved theme preference
   const savedTheme = localStorage.getItem('theme');
-  
-  // Apply saved theme or default to light
-  if (savedTheme === 'dark') {
-    htmlElement.setAttribute('data-theme', 'dark');
-    themeIcon.classList.remove('fa-moon');
-    themeIcon.classList.add('fa-sun');
-  } else {
-    htmlElement.removeAttribute('data-theme');
-    themeIcon.classList.remove('fa-sun');
-    themeIcon.classList.add('fa-moon');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    if (savedTheme === 'dark') {
+      const icon = themeToggle.querySelector('i');
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    }
   }
   
-  // Theme toggle click handler
-  themeToggle.addEventListener('click', function() {
-    if (htmlElement.getAttribute('data-theme') === 'dark') {
-      // Switch to light theme
-      htmlElement.removeAttribute('data-theme');
-      themeIcon.classList.remove('fa-sun');
-      themeIcon.classList.add('fa-moon');
-      localStorage.setItem('theme', 'light');
-    } else {
-      // Switch to dark theme
-      htmlElement.setAttribute('data-theme', 'dark');
-      themeIcon.classList.remove('fa-moon');
-      themeIcon.classList.add('fa-sun');
-      localStorage.setItem('theme', 'dark');
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (window.innerWidth <= 992) { // Only for mobile view
+      const isClickInsideNav = navMenu.contains(event.target) || navToggleBtn.contains(event.target);
+      if (!isClickInsideNav && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        navToggleBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
     }
   });
+  
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  
   
   // Typing animation
   const typed = new Typed('.typing', {
@@ -100,36 +141,27 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Accordion functionality for education/experience section
-  const accordionItems = document.querySelectorAll('.accordian-item-inner');
   
-  accordionItems.forEach(item => {
-    const button = item.querySelector('.accordian-item-button');
-    const body = item.querySelector('.accordian-item-body');
-    
-    button.addEventListener('click', () => {
-      // Toggle active class on the item
-      item.classList.toggle('active');
-      
-      // Toggle the body visibility
-      if (item.classList.contains('active')) {
-        body.style.maxHeight = body.scrollHeight + 'px';
-        body.style.padding = '1.5rem 1rem';
-      } else {
-        body.style.maxHeight = '0';
-        body.style.padding = '0';
-      }
-      
-      // Close other accordion items in the same column
-      const parentColumn = item.closest('.col');
-      parentColumn.querySelectorAll('.accordian-item-inner').forEach(otherItem => {
-        if (otherItem !== item && otherItem.classList.contains('active')) {
-          otherItem.classList.remove('active');
-          otherItem.querySelector('.accordian-item-body').style.maxHeight = '0';
-          otherItem.querySelector('.accordian-item-body').style.padding = '0';
-        }
-      });
-    });
+  const accordionItems = document.querySelectorAll('.accordian-item-inner');
+
+accordionItems.forEach(item => {
+  const button = item.querySelector('.accordian-item-button');
+  const body = item.querySelector('.accordian-item-body');
+
+  button.addEventListener('click', () => {
+    // Toggle active class on the item
+    item.classList.toggle('active');
+
+    // Toggle the body visibility
+    if (item.classList.contains('active')) {
+      body.style.maxHeight = `${body.scrollHeight}px`; // Set to content's full height
+      body.style.padding = '1rem'; // Match CSS open state padding
+    } else {
+      body.style.maxHeight = '0'; // Collapse the body
+      body.style.padding = '0 1rem'; // Match CSS closed state padding
+    }
   });
+});
   
   // Project filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
@@ -162,8 +194,8 @@ document.addEventListener('DOMContentLoaded', function() {
       id: 4,
       title: "Task Management App",
       description: "A productivity app with real-time updates",
-      tags: ["backend"],
-      image: ""
+      tags: ["frontend"],
+      image: "images/frontendportfolio.png"
     },
     {
       id: 5,
@@ -182,38 +214,42 @@ document.addEventListener('DOMContentLoaded', function() {
   ];
   
   // Render projects
-  function renderProjects(filter = 'all') {
-    projectsGrid.innerHTML = '';
-    
-    const filteredProjects = filter === 'all' 
-      ? projects 
-      : projects.filter(project => project.tags.includes(filter));
-    
-    filteredProjects.forEach(project => {
-      const projectCard = document.createElement('div');
-      projectCard.className = 'project-card';
-      projectCard.innerHTML = `
-        <div class="project-image">
-          <img src="${project.image}" alt="${project.title}">
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">${project.title}</h3>
-          <p class="project-description">${project.description}</p>
-          
-          <div class="project-links">
-            <a href="#" class="btn">View Demo</a>
-            <a href="#" class="btn">GitHub Repo</a>
-          </div>
-        </div>
-      `;
-      projectsGrid.appendChild(projectCard);
-    });
-  }
-  // <div class="project-tags">
-  //           ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-  //         </div> === NOT NEEDED AFTER project.description
+  // Update your renderProjects function to this:
+function renderProjects(filter = 'all') {
+  projectsGrid.innerHTML = '';
   
-  // Initial render
+  const filteredProjects = filter === 'all' 
+    ? projects 
+    : projects.filter(project => project.tags.includes(filter));
+  
+  filteredProjects.forEach(project => {
+    const projectCard = document.createElement('div');
+    projectCard.className = 'project-card';
+    projectCard.innerHTML = `
+      <div class="project-image">
+        <img src="${project.image}" alt="${project.title}" loading="lazy">
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">${project.title}</h3>
+        <p class="project-description">${project.description}</p>
+        <div class="project-links">
+          <a href="#" class="btn">View Demo</a>
+          <a href="#" class="btn">GitHub Repo</a>
+        </div>
+      </div>
+    `;
+    projectsGrid.appendChild(projectCard);
+  });
+  
+  // Add ScrollReveal animation for projects
+  ScrollReveal().reveal('.project-card', { 
+    delay: 300,
+    origin: 'bottom',
+    interval: 200,
+    distance: '20px'
+  });
+}
+
   renderProjects();
   
   // Filter button event listeners
@@ -253,3 +289,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+

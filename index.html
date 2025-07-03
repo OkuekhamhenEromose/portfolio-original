@@ -4,13 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Charles Eromose - Full Stack Developer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>CharDev - Full Stack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <header class="header">
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div class="nav-logo">
@@ -28,10 +27,14 @@
           <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
             <i class="fas fa-moon"></i>
           </button>
+          <button class="nav-toggle-btn" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fas fa-bars hamburger"></i>
+            <i class="fas fa-times close-icon"></i>
+          </button>
         </div>
       </div>
     </nav>
-  </header>
+
   <section class="home" id="home">
     <div class="home-container">
       <div class="home-content">
@@ -71,16 +74,16 @@
           <div class="about-socials">
             <ul>
               <li class="twitter">
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://x.com/EhiEromoCharles" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
               </li>
               <li class="linkedin">
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/eromosele-ehihamen-152181337/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
               </li>
               <li class="github">
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/OkuekhamhenEromose" aria-label="GitHub"><i class="fab fa-github"></i></a>
               </li>
               <li class="facebook">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://web.facebook.com/eromose.eromose.1" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
               </li>
             </ul>
           </div>
@@ -239,7 +242,8 @@
             </button>
             <div class="accordian-item-body">
               <p class="accordian-item-description">
-                Designed and implemented RESTful APIs using Node.js and Express. Managed database systems using PostgreSQL. Collaborated with frontend teams to integrate backend services seamlessly.
+                Designed and implemented RESTful APIs using Node.js and Express. Managed database systems using
+                PostgreSQL. Collaborated with frontend teams to integrate backend services seamlessly.
               </p>
             </div>
           </div>
@@ -257,13 +261,6 @@
           <h3>Currently Learning</h3>
           <div class="learning-items">
             <div class="learning-item">
-              <i class="fab fa-rust"></i>
-              <div>
-                <h4>Rust Programming</h4>
-                <p>Exploring systems programming and performance optimization</p>
-              </div>
-            </div>
-            <div class="learning-item">
               <i class="fas fa-brain"></i>
               <div>
                 <h4>Machine Learning</h4>
@@ -271,10 +268,17 @@
               </div>
             </div>
             <div class="learning-item">
-              <i class="fab fa-kubernetes"></i>
+              <i class="fas fa-cloud"></i>
               <div>
-                <h4>Kubernetes</h4>
-                <p>Mastering container orchestration and cloud deployment</p>
+                <h4>Internet of Things</h4>
+                <p>To connect software with physical devices, creating smart solutions for real-world problems like automation and health tech</p>
+              </div>
+            </div>
+            <div class="learning-item">
+              <i class="fas fa-network-wired"></i>
+              <div>
+                <h4>Infrastructure as Code</h4>
+                <p>To automate and manage cloud infrastructure efficiently, ensuring consistency, scalability, and faster deployments across environments.</p>
               </div>
             </div>
           </div>
@@ -311,7 +315,7 @@
       </div>
     </div>
   </section>
-    <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
     referrerpolicy="no-referrer"></script>
   <script type="module" src="script.js"></script>
