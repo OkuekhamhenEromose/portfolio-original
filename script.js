@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
       title: "CH-Travels",
       description: "A modern travel agency app that helps users explore destinations, and book trips.",
       tags: ["frontend"],
-      image: "images/frontendportfolio.png",
+      image: "images/chtravels.png",
       demoLink: "shiny-scone-6fc98c.netlify.app",
       githubLink: "https://github.com/OkuekhamhenEromose/chardevtravel",
     },
