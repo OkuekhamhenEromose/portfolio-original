@@ -165,7 +165,7 @@
   color: var(--color-ff9900);
 }
 [data-theme="dark"] .navbar {
-  background-color: rgba(27, 27, 27, 0.8); /* Semi-transparent dark background */
+  background-color: rgba(27, 27, 27, 0.8);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   color: var(--light-color);
@@ -314,12 +314,20 @@
   color: var(--footer-text);
 }
 
-[data-theme="dark"] .learning-item i {
-  color: var(--footer-icon);
+/* [data-theme="dark"] .learning-item i {
+} */
+[data-theme="dark"] .form-group input::placeholder {
+  color: var(--footer-bg);
+}
+[data-theme="dark"] .form-group textarea::placeholder {
+  color: var(--footer-bg);
 }
 
-[data-theme="dark"] .btn-contact-info .contact-item i {
-  color: var(--footer-icon);
+[data-theme="dark"] .contact-item span {
+  color: var(--footer-bg);
+}
+[data-theme="dark"] .contact-item i {
+  color: var(--footer-title);
 }
 
 [data-theme="dark"] .btn {
@@ -334,7 +342,16 @@
 [data-theme="dark"] .btn::before {
   background-color: var(--btn-color);
 }
+[data-theme="dark"] .btn-contact-info .contact-item i {
+  color: var(--footer-icon); /* Now using the correct dark theme color */
+  transition: all 0.3s ease;
+}
 
+[data-theme="dark"] .btn-contact-info .contact-item:hover i {
+  color: white;
+  transform: translateY(-5px);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 /* Reset and Base Styles */
 * {
   margin: 0;
@@ -399,7 +416,7 @@ body {
   left: 0;
   width: 0;
   height: 100%;
-  background-color: var(--secondary-color); /*bg the buttons occupy */
+  background-color: var(--secondary-color);
   z-index: -1;
   transition: 0.4s;
 }
@@ -542,15 +559,6 @@ body {
   visibility: hidden;
 }
 
-/* .nav-toggle-btn[aria-expanded="true"] .hamburger {
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-.nav-toggle-btn[aria-expanded="true"] .close-icon {
-  opacity: 1 !important;
-  visibility: visible !important;
-} */
 .nav-toggle-btn i {
   font-size: 1.5rem;
   color: var(--dark-color);
@@ -1018,11 +1026,14 @@ body {
 /* Projects Section */
 .projects {
   background-color: #fff;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  padding: var(--space-xl) 0;
 }
 .projects .container {
-  margin-bottom: var(--space-md);
+  /* margin-bottom: var(--space-md); */
   /* max-height: 400px; */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .project-filters {
@@ -1055,25 +1066,18 @@ body {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(280px, 1fr)
-  ); /* Match card width */
-  gap: 6px; /* Very small gap between cards */
-  grid-auto-rows: 320px; /* Fixed row height */
-  max-height: 608px; /* (300px × 2) + (8px gap × 1) */
-  overflow: hidden; /* Strictly enforce 2 rows */
-  padding: 4px; /* Small padding to prevent edge crowding */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  padding: 0 var(--space-sm);
 }
 
 .project-card {
-  background: var(--bg-primary);/**/
+  position: relative;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  width: 350px;
-  height: 300px;
-  box-shadow: 0 4px 12px var(--shadow-light);
-  margin: 0 auto;
-  transition: transform 0.2s; /* Optional: for hover effects */
+  background: var(--white);
+  box-shadow: 0 8px 20px var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Optional: Add hover effect to make cards feel closer */
@@ -1085,7 +1089,8 @@ body {
 /* Image fills the card */
 .project-image {
   width: 100%;
-  height: 500px;
+  height: 300px;
+  overflow: hidden;
 }
 
 .project-image img {
@@ -1095,24 +1100,12 @@ body {
   opacity: 1;
   transition: transform 0.5s ease, opacity 0.3s ease;
 }
-
-/* Content overlay (scrollable if needed) */
+.project-card:hover .project-image img {
+  transform: scale(1.1);
+}
 .project-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  background: linear-gradient(rgba(255, 255, 255, 0.1), var(--light-color));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: opacity 0.5s ease;
   padding: var(--space-md);
-  overflow-y: auto; /* Enable scrolling for long content */
+  text-align: center;
 }
 
 /* Hover effects */
@@ -1131,21 +1124,23 @@ body {
   font-weight: 600;
   color: var(--primary-color);
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  /* width: 100%; */
+  margin-bottom: var(--space-xs);
 }
-
 .project-description {
-  font-size: 1rem;
-  color: var(--dark-color);
+  font-size: 0.95rem;
+  color: var(--paragraph-color);
   margin-bottom: var(--space-md);
+  line-height: 1.4;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-line-clamp: 3; /* Truncate long text */
   line-clamp: 3; /* Standard property for compatibility */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 
 /* Parent container (already in your code) */
 .project-links {
@@ -1156,19 +1151,7 @@ body {
 }
 
 /* Button styles */
-.project-links .btn {
-  display: inline-flex; /* Ensures inline alignment */
-  align-items: center; /* Vertically centers text/icons */
-  justify-content: center; /* Horizontally centers content */
-  padding: 0.5rem 1.25rem; /* Comfortable click area */
-  border-radius: 0.25rem; /* Slightly rounded corners */
-  text-decoration: none;
-  width: 120px;
-  height: 50px; /* Removes underline */
-  font-weight: 500; /* Medium-bold text */
-  transition: all var(--transition-fast); /* Smooth hover effects */
-  white-space: nowrap; /* Prevents text wrapping */
-}
+
 
 /* Hover effect */
 .project-links .btn:hover {
@@ -1176,6 +1159,12 @@ body {
   transform: translateY(-1px); /* Subtle lift effect */
 }
 
+.project-links .btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: var(--radius-md);
+  width: auto;
+}
 /* Active/click effect */
 .project-links .btn:active {
   transform: translateY(0); /* Resets lift when clicked */
@@ -1287,15 +1276,15 @@ main.row {
   padding: 10px 0 6px;
   font-family: var(--minor-font);
   color: #333;
-  grid-area: title; /* Positions the title beside button */
-  align-self: center; /* Vertically centers with button */
-  margin-right: 15px; /* Space between title and button */
+  grid-area: title;
+  align-self: center;
+  margin-right: 15px;
 }
 
 .accordian-item-button {
   width: 2rem;
   height: 2rem;
-  font-size: 1.5rem; /* Slightly reduced size */
+  font-size: 1.5rem;
   background-color: transparent;
   transition: all 0.3s ease;
   display: flex;
@@ -1304,9 +1293,9 @@ main.row {
   border: none;
   outline: none;
   box-shadow: none;
-  grid-area: button; /* Positions the button */
-  align-self: center; /* Vertically centers with title */
-  color: var(--primary-color); /* Matches your theme color */
+  grid-area: button;
+  align-self: center;
+  color: var(--primary-color);
   cursor: pointer;
 }
 
@@ -1340,7 +1329,7 @@ main.row {
   color: #333;
   text-align: left;
   opacity: 1;
-  padding-bottom: 1rem; /* Prevent text from sticking to bottom edge */
+  padding-bottom: 1rem;
 }
 
 /* Show description when expanded */
@@ -1378,8 +1367,6 @@ main.row {
     margin-top: 30px;
   }
 }
-
-/* Contact Section */
 .contact {
   background: #fff;
 }
@@ -1501,8 +1488,6 @@ main.row {
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
 }
 
-/* ==================== MEDIA QUERIES ==================== */
-
 /* 992px and below */
 @media (max-width: 992px) {
   /* Navigation */
@@ -1561,10 +1546,6 @@ main.row {
 [data-theme="dark"] .nav-menu .nav-link::after {
   background: var(--primary-color); /* Your dark theme primary color */
 }
-
-  .footer-content {
-    gap: 15px;
-  }
   /* Hero Section */
   .home-container {
     flex-direction: column;
@@ -1624,6 +1605,9 @@ main.row {
   .project-card {
     width: 100%;
     max-width: 350px;
+  }
+    .contact-grid {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -1,15 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CharDev - Full Stack Developer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CharDev - Full Stack Developer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
+  <body>
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div class="nav-logo">
@@ -24,10 +29,19 @@
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
         <div class="nav-actions">
-          <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            title="Toggle dark mode"
+            aria-label="Toggle dark mode"
+          >
             <i class="fas fa-moon"></i>
           </button>
-          <button class="nav-toggle-btn" aria-label="Toggle menu" aria-expanded="false">
+          <button
+            class="nav-toggle-btn"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
             <i class="fas fa-bars hamburger"></i>
             <i class="fas fa-times close-icon"></i>
           </button>
@@ -35,292 +49,403 @@
       </div>
     </nav>
 
-  <section class="home" id="home">
-    <div class="home-container">
-      <div class="home-content">
-        <h3>Hello, it's me</h3>
-        <h1>Charles Eromose</h1>
-        <h3><span class="typing"></span></h3>
-        <p>I create responsive and interactive web applications using modern technologies.</p>
-
-        <div class="hero-buttons">
-          <a href="#projects" class="btn">Download CV</a>
-          <a href="#contact" class="btn">Get In Touch</a>
-        </div>
-      </div>
-      <div class="home-img">
-        <img src="/images/IMG_9910-removebg-preview.png" alt="Charles Eromose">
-      </div>
-    </div>
-  </section>
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-grid">
-        <div class="about-image">
-          <img src="/images/my pics 6.jpg" alt="Profile" />
-        </div>
-        <div class="about-content">
-          <h3>Passionate Developer & Problem Solver</h3>
+    <section class="home" id="home">
+      <div class="home-container">
+        <div class="home-content">
+          <h3>Hello, it's me</h3>
+          <h1>Charles Eromose</h1>
+          <h3><span class="typing"></span></h3>
           <p>
-            Passionate Full-Stack Developer with 3+ years of experience building<br> scalable web/mobile apps,
-            specializing in JavaScript frameworks, backend <br>systems, and database design. Combines technical
-            expertise
-            with a<br> problem-solving mindset to create impactful digital solutions. <br>Enjoys open-source
-            contributions and
-            continuous learning in tech.
+            I create responsive and interactive web applications using modern
+            technologies.
           </p>
-          <div class="about-socials">
-            <ul>
-              <li class="twitter">
-                <a href="https://x.com/EhiEromoCharles" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              </li>
-              <li class="linkedin">
-                <a href="https://www.linkedin.com/in/eromosele-ehihamen-152181337/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-              </li>
-              <li class="github">
-                <a href="https://github.com/OkuekhamhenEromose" aria-label="GitHub"><i class="fab fa-github"></i></a>
-              </li>
-              <li class="facebook">
-                <a href="https://web.facebook.com/eromose.eromose.1" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-              </li>
-            </ul>
-          </div>
-          <div class="about-highlights">
-            <div class="highlight-item">
-              <i class="fas fa-code"></i>
-              <span>Clean Code Advocate</span>
-            </div>
-            <div class="highlight-item">
-              <i class="fas fa-lightbulb"></i>
-              <span>Innovation Focused</span>
-            </div>
-            <div class="highlight-item">
-              <i class="fas fa-users"></i>
-              <span>Team Player</span>
-            </div>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn">Download CV</a>
+            <a href="#contact" class="btn">Get In Touch</a>
           </div>
         </div>
-
-      </div>
-      <div class="info-cards">
-        <div class="info-card">
-          <h2 class="card-number">50+</h2>
-          <p class="card-description">Projects Completed</p>
-        </div>
-        <div class="info-card">
-          <h2 class="card-number">25+</h2>
-          <p class="card-description">Happy Customers</p>
-        </div>
-        <div class="info-card">
-          <h2 class="card-number">3+</h2>
-          <p class="card-description">Years Experience</p>
-        </div>
-        <div class="info-card">
-          <h2 class="card-number">15+</h2>
-          <p class="card-description">Technologies</p>
+        <div class="home-img">
+          <img
+            src="/images/IMG_9910-removebg-preview.png"
+            alt="Charles Eromose"
+          />
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <div class="container">
-      <h2 class="section-title">Skills</h2>
-      <div class="skills-slider">
-        <div class="skills-track" id="skills-track">
-          <!-- Original items -->
-          <div class="skill-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
-          <div class="skill-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
-          <div class="skill-item"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
-          <div class="skill-item"><i class="fab fa-react"></i><span>React</span></div>
-          <div class="skill-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-          <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
-          <div class="skill-item"><i class="fas fa-database"></i><span>MongoDB</span></div>
-          <div class="skill-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
-          <div class="skill-item"><i class="fab fa-docker"></i><span>Docker</span></div>
-          <div class="skill-item"><i class="fab fa-aws"></i><span>AWS</span></div>
-          <!-- Duplicated items -->
-          <div class="skill-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
-          <div class="skill-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
-          <div class="skill-item"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
-          <div class="skill-item"><i class="fab fa-react"></i><span>React</span></div>
-          <div class="skill-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-          <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
-          <div class="skill-item"><i class="fas fa-database"></i><span>MongoDB</span></div>
-          <div class="skill-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
-          <div class="skill-item"><i class="fab fa-docker"></i><span>Docker</span></div>
-          <div class="skill-item"><i class="fab fa-aws"></i><span>AWS</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2 class="section-title">My Projects</h2>
-      <div class="project-filters">
-        <button class="filter-btn active btn" data-filter="all">All Projects</button>
-        <button class="filter-btn btn" data-filter="frontend">Frontend</button>
-        <button class="filter-btn btn" data-filter="backend">Backend</button>
-        <button class="filter-btn btn" data-filter="games">Games</button>
-      </div>
-      <div class="projects-grid" id="projects-grid">
-        <!-- Projects will be populated by JavaScript -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience & Education Section -->
-   <section class="education" id="education">
-     <div class="edu-exper-container">
-       <h2 class="section-title">Experience & Education</h2>
-       <main class="row">
-         <!-- Education (Left Column) -->
-         <section class="col1 col">
-           <header class="title">
-             <h2>EDUCATION</h2>
-           </header>
-           <div class="contents">
-             <div class="accordian-item-inner">
-               <h4>2014 - 2019</h4>
-               <h3>Bachelors's Degree</h3>
-               <button class="accordian-item-button" aria-label="Toggle accordion item">
-                 <i class="fa-solid fa-plus"></i>
-                 <i class="fa-solid fa-minus"></i>
-               </button>
-               <div class="accordian-item-body">
-                 <p class="accordian-item-description">
-                   Obtained a CGP of 3.5/4.0 in Chemical Science from the University of Benin, Edo State Nigeria.
-                 </p>
-               </div>
-             </div>
-             <div class="accordian-item-inner">
-               <h4>2020 - 2022</h4>
-               <h3>EdSofta Computer Institute</h3>
-               <button class="accordian-item-button" aria-label="Toggle accordion item">
-                 <i class="fa-solid fa-plus"></i>
-                 <i class="fa-solid fa-minus"></i>
-               </button>
-               <div class="accordian-item-body">
-                 <p class="accordian-item-description">
-                   Fondational and Advanced Software Engineering Training, specializing in frontend Development.
-                 </p>
-               </div>
-             </div>
-           </div>
-         </section>
-   
-         <!-- Experience (Right Column) -->
-         <section class="col2 col">
-           <header class="title">
-             <h2>EXPERIENCE</h2>
-           </header>
-           <div class="contents">
-             <div class="accordian-item-inner">
-               <h4>2022 - 2024</h4>
-               <h3>Frontend Web Development</h3>
-               <button class="accordian-item-button" aria-label="Toggle accordion item">
-                 <i class="fa-solid fa-plus"></i>
-                 <i class="fa-solid fa-minus"></i>
-               </button>
-               <div class="accordian-item-body">
-                 <p class="accordian-item-description">
-                   Developed responsive and interactive web applications using HTML, CSS, and JavaScript. Collaborated with
-                   designers to implement user-friendly interfaces and optimize performance across devices.
-                 </p>
-               </div>
-             </div>
-             <div class="accordian-item-inner">
-               <h4>2018 - 2022</h4>
-               <h3>Backend Developer</h3>
-               <button class="accordian-item-button" aria-label="Toggle accordion item">
-                 <i class="fa-solid fa-plus"></i>
-                 <i class="fa-solid fa-minus"></i>
-               </button>
-               <div class="accordian-item-body">
-                 <p class="accordian-item-description">
-                   Designed and implemented RESTful APIs using Node.js and Express. Managed database systems using
-                   PostgreSQL. Collaborated with frontend teams to integrate backend services seamlessly.
-                 </p>
-               </div>
-             </div>
-           </div>
-         </section>
-       </main>
-     </div>
-   </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2 class="section-title">Let's Connect</h2>
-      <div class="contact-grid">
-        <div class="learning-section">
-          <h3>Currently Learning</h3>
-          <div class="learning-items">
-            <div class="learning-item">
-              <i class="fas fa-brain"></i>
-              <div>
-                <h4>Machine Learning</h4>
-                <p>Diving into AI and data science with Python and TensorFlow</p>
-              </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-image">
+            <img src="/images/my pics 6.jpg" alt="Profile" />
+          </div>
+          <div class="about-content">
+            <h3>Passionate Developer & Problem Solver</h3>
+            <p>
+              Passionate Full-Stack Developer with 3+ years of experience
+              building<br />
+              scalable web/mobile apps, specializing in JavaScript frameworks,
+              backend <br />systems, and database design. Combines technical
+              expertise with a<br />
+              problem-solving mindset to create impactful digital solutions.
+              <br />Enjoys open-source contributions and continuous learning in
+              tech.
+            </p>
+            <div class="about-socials">
+              <ul>
+                <li class="twitter">
+                  <a href="https://x.com/EhiEromoCharles" aria-label="Twitter"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                </li>
+                <li class="linkedin">
+                  <a
+                    href="https://www.linkedin.com/in/eromosele-ehihamen-152181337/"
+                    aria-label="LinkedIn"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </li>
+                <li class="github">
+                  <a
+                    href="https://github.com/OkuekhamhenEromose"
+                    aria-label="GitHub"
+                    ><i class="fab fa-github"></i
+                  ></a>
+                </li>
+                <li class="facebook">
+                  <a
+                    href="https://web.facebook.com/eromose.eromose.1"
+                    aria-label="Facebook"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
+                </li>
+              </ul>
             </div>
-            <div class="learning-item">
-              <i class="fas fa-cloud"></i>
-              <div>
-                <h4>Internet of Things</h4>
-                <p>To connect software with physical devices, creating smart solutions for real-world problems like automation and health tech</p>
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <i class="fas fa-code"></i>
+                <span>Clean Code Advocate</span>
               </div>
-            </div>
-            <div class="learning-item">
-              <i class="fas fa-network-wired"></i>
-              <div>
-                <h4>Infrastructure as Code</h4>
-                <p>To automate and manage cloud infrastructure efficiently, ensuring consistency, scalability, and faster deployments across environments.</p>
+              <div class="highlight-item">
+                <i class="fas fa-lightbulb"></i>
+                <span>Innovation Focused</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-users"></i>
+                <span>Team Player</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="contact-form-section">
-          <h3>Get In Touch</h3>
-          <form class="contact-form" id="contact-form">
-            <div class="form-group">
-              <input type="text" id="name" name="name" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-              <input type="email" id="email" name="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-              <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-            </div>
-            <div class="btn-contact-info">
-              <button type="submit" class="btn">Send Message</button>
-              <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <span></span>
-              </div>
-              <div class="contact-item">
-                <i class="fab fa-youtube"></i>
-                <span></span>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-phone-alt"></i>
-                <span></span>
-              </div>
-            </div>
-          </form>
+        <div class="info-cards">
+          <div class="info-card">
+            <h2 class="card-number">50+</h2>
+            <p class="card-description">Projects Completed</p>
+          </div>
+          <div class="info-card">
+            <h2 class="card-number">25+</h2>
+            <p class="card-description">Happy Customers</p>
+          </div>
+          <div class="info-card">
+            <h2 class="card-number">3+</h2>
+            <p class="card-description">Years Experience</p>
+          </div>
+          <div class="info-card">
+            <h2 class="card-number">15+</h2>
+            <p class="card-description">Technologies</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
-    referrerpolicy="no-referrer"></script>
-  <script type="module" src="script.js"></script>
-</body>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-slider">
+          <div class="skills-track" id="skills-track">
+            <!-- Original items -->
+            <div class="skill-item">
+              <i class="fab fa-html5"></i><span>HTML5</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-css3-alt"></i><span>CSS3</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-js-square"></i><span>JavaScript</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-react"></i><span>React</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-node-js"></i><span>Node.js</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-python"></i><span>Python</span>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-database"></i><span>MongoDB</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-git-alt"></i><span>Git</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-docker"></i><span>Docker</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-aws"></i><span>AWS</span>
+            </div>
+            <!-- Duplicated items -->
+            <div class="skill-item">
+              <i class="fab fa-html5"></i><span>HTML5</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-css3-alt"></i><span>CSS3</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-js-square"></i><span>JavaScript</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-react"></i><span>React</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-node-js"></i><span>Node.js</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-python"></i><span>Python</span>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-database"></i><span>MongoDB</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-git-alt"></i><span>Git</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-docker"></i><span>Docker</span>
+            </div>
+            <div class="skill-item">
+              <i class="fab fa-aws"></i><span>AWS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="project-filters">
+          <button class="filter-btn active btn" data-filter="all">
+            All Projects
+          </button>
+          <button class="filter-btn btn" data-filter="frontend">
+            Frontend
+          </button>
+          <button class="filter-btn btn" data-filter="backend">Backend</button>
+          <button class="filter-btn btn" data-filter="games">Games</button>
+        </div>
+        <div class="projects-grid" id="projects-grid">
+          <!-- Projects will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section class="education" id="education">
+      <div class="edu-exper-container">
+        <h2 class="section-title">Experience & Education</h2>
+        <main class="row">
+          <!-- Education (Left Column) -->
+          <section class="col1 col">
+            <header class="title">
+              <h2>EDUCATION</h2>
+            </header>
+            <div class="contents">
+              <div class="accordian-item-inner">
+                <h4>2014 - 2019</h4>
+                <h3>Bachelors's Degree</h3>
+                <button
+                  class="accordian-item-button"
+                  aria-label="Toggle accordion item"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <div class="accordian-item-body">
+                  <p class="accordian-item-description">
+                    Obtained a CGP of 3.5/4.0 in Chemical Science from the
+                    University of Benin, Edo State Nigeria.
+                  </p>
+                </div>
+              </div>
+              <div class="accordian-item-inner">
+                <h4>2020 - 2022</h4>
+                <h3>EdSofta Computer Institute</h3>
+                <button
+                  class="accordian-item-button"
+                  aria-label="Toggle accordion item"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <div class="accordian-item-body">
+                  <p class="accordian-item-description">
+                    Fondational and Advanced Software Engineering Training,
+                    specializing in frontend Development.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Experience (Right Column) -->
+          <section class="col2 col">
+            <header class="title">
+              <h2>EXPERIENCE</h2>
+            </header>
+            <div class="contents">
+              <div class="accordian-item-inner">
+                <h4>2022 - 2024</h4>
+                <h3>Frontend Web Development</h3>
+                <button
+                  class="accordian-item-button"
+                  aria-label="Toggle accordion item"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <div class="accordian-item-body">
+                  <p class="accordian-item-description">
+                    Developed responsive and interactive web applications using
+                    HTML, CSS, and JavaScript. Collaborated with designers to
+                    implement user-friendly interfaces and optimize performance
+                    across devices.
+                  </p>
+                </div>
+              </div>
+              <div class="accordian-item-inner">
+                <h4>2018 - 2022</h4>
+                <h3>Backend Developer</h3>
+                <button
+                  class="accordian-item-button"
+                  aria-label="Toggle accordion item"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <div class="accordian-item-body">
+                  <p class="accordian-item-description">
+                    Designed and implemented RESTful APIs using Node.js and
+                    Express. Managed database systems using PostgreSQL.
+                    Collaborated with frontend teams to integrate backend
+                    services seamlessly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-grid">
+          <div class="learning-section">
+            <h3>Currently Learning</h3>
+            <div class="learning-items">
+              <div class="learning-item">
+                <i class="fas fa-brain"></i>
+                <div>
+                  <h4>Machine Learning</h4>
+                  <p>
+                    Diving into AI and data science with Python and TensorFlow
+                  </p>
+                </div>
+              </div>
+              <div class="learning-item">
+                <i class="fas fa-cloud"></i>
+                <div>
+                  <h4>Internet of Things</h4>
+                  <p>
+                    To connect software with physical devices, creating smart
+                    solutions for real-world problems like automation and health
+                    tech
+                  </p>
+                </div>
+              </div>
+              <div class="learning-item">
+                <i class="fas fa-network-wired"></i>
+                <div>
+                  <h4>Infrastructure as Code</h4>
+                  <p>
+                    To automate and manage cloud infrastructure efficiently,
+                    ensuring consistency, scalability, and faster deployments
+                    across environments.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-section">
+            <h3>Get In Touch</h3>
+            <form class="contact-form" id="contact-form">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Your Message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <div class="btn-contact-info">
+                <button type="submit" class="btn">Send Message</button>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <span></span>
+                </div>
+                <div class="contact-item">
+                  <i class="fab fa-youtube"></i>
+                  <span></span>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone-alt"></i>
+                  <span></span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="script.js"></script>
+  </body>
 </html>

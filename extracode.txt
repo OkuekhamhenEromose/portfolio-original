@@ -1,4 +1,239 @@
+.project-card {
+  background: var(--bg-primary);/**/
+  overflow: hidden;
+  width: 350px;
+  height: 300px;
+  box-shadow: 0 4px 12px var(--shadow-light);
+  margin: 0 auto;
+  transition: transform 0.2s; /* Optional: for hover effects */
+}
 
+display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Match card width */
+  gap: 6px; /* Very small gap between cards */
+  grid-auto-rows: 320px; /* Fixed row height */
+  max-height: 608px; /* (300px × 2) + (8px gap × 1) */
+  overflow: hidden; /* Strictly enforce 2 rows */
+  padding: 4px; /* Small padding to prevent edge crowding */
+
+.project-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), var(--light-color));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: opacity 0.5s ease;
+  padding: var(--space-md);
+  overflow-y: auto;
+}
+.project-description {
+  font-size: 1rem;
+  color: var(--dark-color);
+  margin-bottom: var(--space-md);
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  line-clamp: 3; /* Standard property for compatibility */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.project-links .btn {
+  display: inline-flex; /* Ensures inline alignment */
+  align-items: center; /* Vertically centers text/icons */
+  justify-content: center; /* Horizontally centers content */
+  padding: 0.5rem 1.25rem; /* Comfortable click area */
+  border-radius: 0.25rem; /* Slightly rounded corners */
+  text-decoration: none;
+  width: 120px;
+  height: 50px; /* Removes underline */
+  font-weight: 500; /* Medium-bold text */
+  transition: all var(--transition-fast); /* Smooth hover effects */
+  white-space: nowrap; /* Prevents text wrapping */
+}
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Let's Connect</h2>
+      <div class="contact-grid">
+        <div class="learning-section">
+          <h3>Currently Learning</h3>
+          <div class="learning-items">
+            <div class="learning-item">
+              <i class="fas fa-brain"></i>
+              <div>
+                <h4>Machine Learning</h4>
+                <p>Diving into AI and data science with Python and TensorFlow</p>
+              </div>
+            </div>
+            <div class="learning-item">
+              <i class="fas fa-cloud"></i>
+              <div>
+                <h4>Internet of Things</h4>
+                <p>To connect software with physical devices, creating smart solutions for real-world problems like automation and health tech</p>
+              </div>
+            </div>
+            <div class="learning-item">
+              <i class="fas fa-network-wired"></i>
+              <div>
+                <h4>Infrastructure as Code</h4>
+                <p>To automate and manage cloud infrastructure efficiently, ensuring consistency, scalability, and faster deployments across environments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-section">
+          <h3>Get In Touch</h3>
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <div class="btn-contact-info">
+              <button type="submit" class="btn">Send Message</button>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span></span>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-youtube"></i>
+                <span></span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span></span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  CSS FILE contact
+
+  .learning-section h3,
+.contact-form-section h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  color: var(--primary-color);
+}
+
+.learning-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.learning-item {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.learning-item i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-top: 4px;
+}
+
+.learning-item h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+  color: #333;
+}
+
+.learning-item p {
+  color: #333;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 2px solid var(--light-color);
+  border-radius: var(--radius-lg);
+  background: var(--light-color);
+  color: #333;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.btn-contact-info {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  gap: var(--space-sm); /* Space between items */
+}
+
+.btn-contact-info .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+}
+
+.btn-contact-info .contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s;
+}
+
+.btn-contact-info .contact-item:hover {
+  color: white;
+}
+
+.btn-contact-info .contact-item i {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fe0002;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.btn-contact-info .contact-item:hover i {
+  color: white;
+  transform: translateY(-5px); /* Moves icon up by 5px */
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+}
 /* Home Section */
 .home {
   min-height: 100vh;
