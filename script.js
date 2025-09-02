@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       id: 4,
       title: "CH-Travels",
-      description: "A modern travel agency app that helps users explore destinations, book trips, and manage itineraries seamlessly.",
+      description: "A modern travel agency app that helps users explore destinations, and book trips.",
       tags: ["frontend"],
       image: "images/frontendportfolio.png",
       demoLink: "shiny-scone-6fc98c.netlify.app",
